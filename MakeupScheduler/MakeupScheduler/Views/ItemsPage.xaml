@@ -1,11 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MakeupScheduler.Converters"
              x:Class="MakeupScheduler.Views.ItemsPage"
+             
               Title="{Binding Title}"
-             x:Name="BrowseItemsPage">
+             x:Name="Termini">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ToShortDateStringConverter x:Key="ToShortDateStringConverter"></local:ToShortDateStringConverter>
+            <local:ToShortTimeStringConverter x:Key="ToShortTimeStringConverter"></local:ToShortTimeStringConverter>
+            <local:BoolToLocalStringConverter x:Key="BoolToLocalStringConverter"></local:BoolToLocalStringConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
+        <ToolbarItem Text="Zakazi" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="add.png"/>
@@ -16,8 +25,8 @@
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="ItemsListView" 
-                ItemsSource="{Binding Items}"
-                VerticalOptions="FillAndExpand"
+                 ItemsSource="{Binding Items}"
+                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"
                  RefreshCommand="{Binding LoadItemsCommand}"
                  IsPullToRefreshEnabled="true"
@@ -28,11 +37,29 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Text}" 
+                                <Label Text="{Binding Name}" 
                        LineBreakMode="NoWrap" 
                        Style="{DynamicResource ListItemTextStyle}" 
                        FontSize="16" />
-                                <Label Text="{Binding Description}" 
+                                
+                                <Label Text="{Binding Date,Converter={StaticResource ToShortDateStringConverter}}" 
+                       LineBreakMode="NoWrap"
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+
+                                <Label Text="{Binding StartTime,Converter={StaticResource ToShortTimeStringConverter}}" 
+                       LineBreakMode="NoWrap"
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+                                <Label Text="{Binding EndTime,Converter={StaticResource ToShortTimeStringConverter}}" 
+                       LineBreakMode="NoWrap"
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+                                <Label Text="{Binding Accessories,Converter={StaticResource BoolToLocalStringConverter}}" 
+                       LineBreakMode="NoWrap"
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+                                <Label Text="{Binding Price}" 
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemDetailTextStyle}"
                        FontSize="13" />

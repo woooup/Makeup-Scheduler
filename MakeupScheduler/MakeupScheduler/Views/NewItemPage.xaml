@@ -8,10 +8,23 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
-            <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Item.Text}" FontSize="Small" />
-            <Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0" />
+            <Label Text="Name" FontSize="Medium" />
+            <Entry Text="{Binding Item.Name}" FontSize="Small" />
+            
+            <Label Text="Price" FontSize="Medium" />
+            <Editor Text="{Binding Item.Price}" Keyboard="Numeric" FontSize="Small" Margin="0" />
+            
+            <Label Text="Date" FontSize="Medium" />
+            <DatePicker Date="{Binding Item.Date}" Margin="0" />
+            
+            <Label Text="Start time" FontSize="Medium" />
+            <TimePicker Time="{Binding Item.StartTime}" Margin="0" />
+            
+            <Label Text="End time" FontSize="Medium" />
+            <TimePicker Time="{Binding Item.EndTime}" Margin="0" />
+
+            <Label Text="Accessories" FontSize="Medium" />
+            <Switch IsToggled="{Binding Item.Accessories}" Margin="0" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

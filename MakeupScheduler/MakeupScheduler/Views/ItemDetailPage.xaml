@@ -5,8 +5,18 @@
              Title="{Binding Title}">
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Item.Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Item.Description}" FontSize="Small"/>
+        <Label Text="{Binding Item.Name}" FontSize="Small"/>
+        
+        <Label Text="Date:" FontSize="Medium" />
+        <Label Text="{Binding Item.Date}" FontSize="Small"/>
+        
+        <Label Text="StartTime:" FontSize="Medium" />
+        <Label Text="{Binding Item.StartTime}" FontSize="Small"/>
+
+        <Label Text="EndTime:" FontSize="Medium" />
+        <Label Text="{Binding Item.EndTime}" FontSize="Small"/>
+
+        <Label Text="Price:" FontSize="Medium" />
+        <Label Text="{Binding Item.Price}" FontSize="Small"/>
     </StackLayout>
 </ContentPage>

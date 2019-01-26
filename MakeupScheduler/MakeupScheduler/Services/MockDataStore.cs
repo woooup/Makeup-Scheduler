@@ -15,12 +15,13 @@ namespace MakeupScheduler.Services
             items = new List<Item>();
             var mockItems = new List<Item>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),Name = "First item", Date = DateTime.Now,
+                    StartTime =new TimeSpan(12,0,0),EndTime = new TimeSpan(13,0,0), Accessories=true, Price=1000 },
+
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Second item", Date = DateTime.Now,
+                    StartTime =new TimeSpan(14,0,0),EndTime = new TimeSpan(16,0,0), Accessories=false, Price=1500 },
+
+
             };
 
             foreach (var item in mockItems)
