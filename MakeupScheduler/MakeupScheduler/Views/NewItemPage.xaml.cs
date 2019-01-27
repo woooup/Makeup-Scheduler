@@ -20,11 +20,14 @@ namespace MakeupScheduler.Views
             Item = new Item
             {
                 Name = "Item name",
-                Date = DateTime.Now,
-                StartTime = DateTime.Now.TimeOfDay,
-                EndTime = DateTime.Now.TimeOfDay,
+                Date = DateTime.Now.Date,
+                StartTime = new TimeSpan(8, 0, 0),
+                EndTime = new TimeSpan(9, 0, 0),
+                Price = 100,
                 Accessories = false,
-                Price = 1000
+                
+
+
             };
 
             BindingContext = this;

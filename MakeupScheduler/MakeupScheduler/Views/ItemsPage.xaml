@@ -11,6 +11,8 @@
             <local:ToShortDateStringConverter x:Key="ToShortDateStringConverter"></local:ToShortDateStringConverter>
             <local:ToShortTimeStringConverter x:Key="ToShortTimeStringConverter"></local:ToShortTimeStringConverter>
             <local:BoolToLocalStringConverter x:Key="BoolToLocalStringConverter"></local:BoolToLocalStringConverter>
+            <local:ToLongDateStringConverter x:Key="ToLongDateStringConverter"></local:ToLongDateStringConverter>
+
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -24,6 +26,15 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <Label Text="Filter Items:" 
+               VerticalOptions="Center"/>
+                <Picker ItemsSource="{Binding FilterOptions}" 
+                SelectedItem="{Binding SelectedFilter}"
+                ItemDisplayBinding="{Binding .,Converter={StaticResource ToLongDateStringConverter}}"
+                VerticalOptions="Center" 
+                HorizontalOptions="FillAndExpand" />
+            </StackLayout>
             <ListView x:Name="ItemsListView" 
                  ItemsSource="{Binding Items}"
                  VerticalOptions="FillAndExpand"

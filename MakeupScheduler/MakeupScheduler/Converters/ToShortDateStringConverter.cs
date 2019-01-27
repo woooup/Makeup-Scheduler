@@ -16,7 +16,9 @@ namespace MakeupScheduler.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            string date = (string)value;
+            DateTime dateTime = DateTime.Parse(date);
+            return dateTime;
         }
     }
 }

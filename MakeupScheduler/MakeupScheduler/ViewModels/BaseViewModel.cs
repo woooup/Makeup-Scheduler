@@ -12,7 +12,7 @@ namespace MakeupScheduler.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? MockDataStore.Instance;
 
         bool isBusy = false;
         public bool IsBusy

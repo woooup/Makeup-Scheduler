@@ -26,12 +26,8 @@ namespace MakeupScheduler.Views
 
             var item = new Item
             {
-                Name = "Item name",
-                Date = DateTime.Now,
-                StartTime = DateTime.Now.TimeOfDay,
-                EndTime = DateTime.Now.TimeOfDay,
-                Accessories = false,
-                Price = 1000
+                Name = "Item 1",
+                Description = "This is an item description."
             };
 
             viewModel = new ItemDetailViewModel(item);
