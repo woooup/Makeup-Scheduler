@@ -16,9 +16,9 @@ namespace MakeupScheduler.Views
         public NewItemPage()
         {
             InitializeComponent();
-
             Item = new Item
             {
+                
                 Name = "Item name",
                 Date = DateTime.Now.Date,
                 StartTime = new TimeSpan(8, 0, 0),
@@ -29,13 +29,34 @@ namespace MakeupScheduler.Views
 
 
             };
+            EditControls.IsVisible = false;
+            SaveButton.IsVisible = true;
 
             BindingContext = this;
         }
-
+        public NewItemPage(Item item)
+        {
+            InitializeComponent();
+            Item = item;
+            this.Title = item.Name + ", " + item.Date.ToShortDateString(); ;
+            EditControls.IsVisible = true;
+            BindingContext = this;
+        }
         async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "AddItem", Item);
+            await Navigation.PopModalAsync();
+        }
+
+        async void Edit_Clicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "EditItem", Item);
+            await Navigation.PopModalAsync();
+        }
+
+        async void Delete_Clicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "DeleteItem", Item);
             await Navigation.PopModalAsync();
         }
     }

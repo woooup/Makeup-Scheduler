@@ -11,22 +11,19 @@
             <local:ToShortDateStringConverter x:Key="ToShortDateStringConverter"></local:ToShortDateStringConverter>
             <local:ToShortTimeStringConverter x:Key="ToShortTimeStringConverter"></local:ToShortTimeStringConverter>
             <local:BoolToLocalStringConverter x:Key="BoolToLocalStringConverter"></local:BoolToLocalStringConverter>
-            <local:ToLongDateStringConverter x:Key="ToLongDateStringConverter"></local:ToLongDateStringConverter>
-
+            <local:ToLongDateStringConverter  x:Key="ToLongDateStringConverter"></local:ToLongDateStringConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Zakazi" Clicked="AddItem_Clicked">
-            <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png"/>
-                </OnPlatform>
-            </ToolbarItem.Icon>
-        </ToolbarItem>
+       
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Horizontal" Padding="10">
+        <RelativeLayout>
+            <StackLayout x:Name="filterLayout" Orientation="Horizontal" Padding="10"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+            Type=RelativeToParent,
+            Property=Width,
+            Factor=1}">
                 <Label Text="Filter Items:" 
                VerticalOptions="Center"/>
                 <Picker ItemsSource="{Binding FilterOptions}" 
@@ -43,7 +40,17 @@
                  IsPullToRefreshEnabled="true"
                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                  CachingStrategy="RecycleElement"
-                 ItemSelected="OnItemSelected">
+                 ItemSelected="OnItemSelected"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}"
+                 RelativeLayout.YConstraint="{ConstraintExpression
+                 Type=RelativeToView,
+                 ElementName=filterLayout,
+                 Property= Height,
+                 Constant=5,
+                 Factor=1}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -52,7 +59,7 @@
                        LineBreakMode="NoWrap" 
                        Style="{DynamicResource ListItemTextStyle}" 
                        FontSize="16" />
-                                
+
                                 <Label Text="{Binding Date,Converter={StaticResource ToShortDateStringConverter}}" 
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemDetailTextStyle}"
@@ -79,6 +86,31 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+            <Frame CornerRadius="25" 
+            HasShadow="True"
+            OutlineColor="Red" 
+            Padding="0"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=0.6}"
+                       
+              RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.9
+                
+                }"
+               RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=0.2                
+                }">
+                <StackLayout  x:Name="floatToolbar" Orientation="Horizontal" BackgroundColor="Silver">
+                    <Button x:Name="addItemButton" Text="Zakazi" Clicked="AddItem_Clicked" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand"/>
+                    <Button x:Name="editItemButton" Text="Podesavanja"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+            </Frame>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

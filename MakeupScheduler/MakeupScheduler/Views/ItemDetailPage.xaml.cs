@@ -27,7 +27,6 @@ namespace MakeupScheduler.Views
             var item = new Item
             {
                 Name = "Item 1",
-                Description = "This is an item description."
             };
 
             viewModel = new ItemDetailViewModel(item);
