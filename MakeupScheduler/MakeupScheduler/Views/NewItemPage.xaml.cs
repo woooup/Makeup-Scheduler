@@ -29,7 +29,7 @@ namespace MakeupScheduler.Views
 
 
             };
-            EditControls.IsVisible = false;
+            
             SaveButton.IsVisible = true;
 
             BindingContext = this;
@@ -38,8 +38,10 @@ namespace MakeupScheduler.Views
         {
             InitializeComponent();
             Item = item;
-            this.Title = item.Name + ", " + item.Date.ToShortDateString(); ;
-            EditControls.IsVisible = true;
+            this.Title = item.Name + ", " + item.Date.ToShortDateString();
+
+            EditButton.IsVisible = true;
+            DeleteButton.IsVisible = true;
             BindingContext = this;
         }
         async void Save_Clicked(object sender, EventArgs e)

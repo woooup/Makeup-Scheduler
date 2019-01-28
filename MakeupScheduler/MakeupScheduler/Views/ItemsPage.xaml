@@ -93,12 +93,12 @@
             RelativeLayout.WidthConstraint="{ConstraintExpression
                 Type=RelativeToParent,
                 Property=Width,
-                Factor=0.25}"
+                Factor=0.3}"
               
             RelativeLayout.HeightConstraint="{ConstraintExpression
                 Type=RelativeToParent,
                 Property=Width,
-                Factor=0.1}"
+                Factor=0.12}"
                    
               RelativeLayout.YConstraint="{ConstraintExpression 
                 Type=RelativeToParent,
@@ -109,7 +109,7 @@
                RelativeLayout.XConstraint="{ConstraintExpression 
                 Type=RelativeToParent,
                 Property=Width,
-                Factor=0.375              
+                Factor=0.35              
                 }">
                 <StackLayout  x:Name="floatToolbar" Orientation="Horizontal" BackgroundColor="Silver">
                     <ImageButton x:Name="addItemButton" Source="add.png" BackgroundColor="Transparent" Clicked="AddItem_Clicked"  HorizontalOptions="CenterAndExpand"/>

@@ -29,20 +29,23 @@
 
             <Frame Padding="0" HasShadow="True">
                 <StackLayout BackgroundColor="Green">
-                    <Button x:Name="SaveButton" Text="Sacuvaj" 
-                            Clicked="Save_Clicked" BackgroundColor="Transparent" IsVisible="False"/>
+                    <Button x:Name="SaveButton" Text="Sacuvaj"  IsVisible="False"
+                            Clicked="Save_Clicked" BackgroundColor="Transparent"/>
                 </StackLayout>
             </Frame>
-
-
-            <Frame  Padding="0" HasShadow="True">
-                <StackLayout x:Name="EditControls" Orientation="Horizontal" IsVisible="false" BackgroundColor="LightGray">
+            <Frame Padding="0" HasShadow="True">
+                <StackLayout BackgroundColor="Silver">
                     <Button x:Name="EditButton" Text="Izmeni" 
-                            Clicked="Edit_Clicked" BackgroundColor="Transparent" />
-                    <Button x:Name="deleteButton" Text="Izbrisi" 
-                            Clicked="Delete_Clicked" BackgroundColor="Transparent" />
+                            Clicked="Edit_Clicked" BackgroundColor="Transparent" IsVisible="False"/>
                 </StackLayout>
+             </Frame>
+            <Frame Padding="0" HasShadow="True">
+                    <StackLayout BackgroundColor="Red">
+                        <Button x:Name="DeleteButton" Text="Izbrisi" 
+                            Clicked="Delete_Clicked" BackgroundColor="Transparent" IsVisible="False"/>
+                    </StackLayout>
             </Frame>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
