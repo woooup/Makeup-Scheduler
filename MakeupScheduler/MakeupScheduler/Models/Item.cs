@@ -1,4 +1,5 @@
 ﻿using MakeupScheduler.Helpers;
+using SQLite;
 using System;
 
 namespace MakeupScheduler.Models
@@ -12,7 +13,8 @@ namespace MakeupScheduler.Models
         private TimeSpan endTime;
         private double price;
 
-        public string Id { get; set; }  
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }  
         public string Name
         {
             get => name;

@@ -43,7 +43,6 @@ namespace MakeupScheduler.ViewModels
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
             {
                 var newItem = item as Item;
-                newItem.Id = newItem.Date.ToShortDateString() + newItem.StartTime.ToString();
                 AllItems.Add(newItem);
                 AddFilterOptions(newItem);
                 FilterItems();
