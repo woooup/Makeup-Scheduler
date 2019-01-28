@@ -29,10 +29,10 @@
                     <DatePicker Date="{Binding Item.Date}" Margin="0" />
 
                     <Label Text="Start time" FontSize="Small" />
-                    <TimePicker Time="{Binding Item.StartTime}" Margin="0" />
+                    <TimePicker Format="HH:mm" Time="{Binding Item.StartTime}" Margin="0" />
 
                     <Label Text="End time" FontSize="Small" />
-                    <TimePicker Time="{Binding Item.EndTime}" Margin="0" />
+                    <TimePicker Format="HH:mm" Time="{Binding Item.EndTime}" Margin="0" />
 
                     <Label Text="Accessories" FontSize="Small" />
                     <Switch IsToggled="{Binding Item.Accessories}" HorizontalOptions="StartAndExpand" Margin="0" />

@@ -5,9 +5,17 @@
              Title="Statistika">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <RelativeLayout>
+                <Label Text="1.1.2019." RelativeLayout.WidthConstraint="{ConstraintExpression
+                   Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.3
+                    }"/>
+
+                
+            </RelativeLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

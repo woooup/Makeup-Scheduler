@@ -38,6 +38,15 @@
                     VerticalOptions="Center" 
                     HorizontalOptions="FillAndExpand" />
                 </StackLayout>
+
+                <StackLayout x:Name="dayReport" Orientation="Horizontal" Padding="10">
+                    <Label Text="Today:" 
+                   VerticalOptions="Center"/>
+                    <Label Text="{Binding Report}" VerticalOptions="Center"
+                           HorizontalOptions="FillAndExpand"/>
+                   
+                </StackLayout>
+
                 <ListView x:Name="ItemsListView" 
                      ItemsSource="{Binding Items}"
                      VerticalOptions="FillAndExpand"
