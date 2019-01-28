@@ -19,82 +19,87 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RelativeLayout>
-            <StackLayout x:Name="filterLayout" Orientation="Horizontal" Padding="10"
-            RelativeLayout.WidthConstraint="{ConstraintExpression
-            Type=RelativeToParent,
-            Property=Width,
-            Factor=1}">
-                <Label Text="Filter Items:" 
-               VerticalOptions="Center"/>
-                <Picker ItemsSource="{Binding FilterOptions}" 
-                SelectedItem="{Binding SelectedFilter}"
-                ItemDisplayBinding="{Binding .,Converter={StaticResource ToLongDateStringConverter}}"
-                VerticalOptions="Center" 
-                HorizontalOptions="FillAndExpand" />
-            </StackLayout>
-            <ListView x:Name="ItemsListView" 
-                 ItemsSource="{Binding Items}"
-                 VerticalOptions="FillAndExpand"
-                 HasUnevenRows="true"
-                 RefreshCommand="{Binding LoadItemsCommand}"
-                 IsPullToRefreshEnabled="true"
-                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                 CachingStrategy="RecycleElement"
-                 ItemSelected="OnItemSelected"
-                 RelativeLayout.WidthConstraint="{ConstraintExpression
+
+            <StackLayout 
+                  RelativeLayout.WidthConstraint="{ConstraintExpression
                     Type=RelativeToParent,
                     Property=Width,
                     Factor=1}"
-                 RelativeLayout.YConstraint="{ConstraintExpression
-                 Type=RelativeToView,
-                 ElementName=filterLayout,
-                 Property= Height,
-                 Constant=5,
-                 Factor=1}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Name}" 
-                       LineBreakMode="NoWrap" 
-                       Style="{DynamicResource ListItemTextStyle}" 
-                       FontSize="16" />
+                  RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=1}">
+                <StackLayout x:Name="filterLayout" Orientation="Horizontal" Padding="10">
+                    <Label Text="Filter Items:" 
+                   VerticalOptions="Center"/>
+                    <Picker ItemsSource="{Binding FilterOptions}" 
+                    SelectedItem="{Binding SelectedFilter}"
+                    ItemDisplayBinding="{Binding .,Converter={StaticResource ToLongDateStringConverter}}"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <ListView x:Name="ItemsListView" 
+                     ItemsSource="{Binding Items}"
+                     VerticalOptions="FillAndExpand"
+                     HasUnevenRows="true"
+                     RefreshCommand="{Binding LoadItemsCommand}"
+                     IsPullToRefreshEnabled="true"
+                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                     CachingStrategy="RecycleElement"
+                     ItemSelected="OnItemSelected"        
+                    >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10">
+                                        <Label Text="{Binding Name}" 
+                           LineBreakMode="NoWrap" 
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="16" />
 
-                                <Label Text="{Binding Date,Converter={StaticResource ToShortDateStringConverter}}" 
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="13" />
+                                        <Label Text="{Binding Date,Converter={StaticResource ToShortDateStringConverter}}" 
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="13" />
 
-                                <Label Text="{Binding StartTime,Converter={StaticResource ToShortTimeStringConverter}}" 
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="13" />
-                                <Label Text="{Binding EndTime,Converter={StaticResource ToShortTimeStringConverter}}" 
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="13" />
-                                <Label Text="{Binding Accessories,Converter={StaticResource BoolToLocalStringConverter}}" 
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="13" />
-                                <Label Text="{Binding Price}" 
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="13" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                        <Label Text="{Binding StartTime,Converter={StaticResource ToShortTimeStringConverter}}" 
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="13" />
+                                    <Label Text="{Binding EndTime,Converter={StaticResource ToShortTimeStringConverter}}" 
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="13" />
+                                    <Label Text="{Binding Accessories,Converter={StaticResource BoolToLocalStringConverter}}" 
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="13" />
+                                    <Label Text="{Binding Price}" 
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="13" />
+
+                                </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+            </StackLayout>
             <Frame CornerRadius="25" 
             HasShadow="True"
             OutlineColor="Red" 
             Padding="0"
+            MinimumHeightRequest="50"
             RelativeLayout.WidthConstraint="{ConstraintExpression
                 Type=RelativeToParent,
                 Property=Width,
-                Factor=0.6}"
-                       
+                Factor=0.25}"
+              
+            RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=0.1}"
+                   
               RelativeLayout.YConstraint="{ConstraintExpression 
                 Type=RelativeToParent,
                 Property=Height,
@@ -104,11 +109,11 @@
                RelativeLayout.XConstraint="{ConstraintExpression 
                 Type=RelativeToParent,
                 Property=Width,
-                Factor=0.2                
+                Factor=0.375              
                 }">
                 <StackLayout  x:Name="floatToolbar" Orientation="Horizontal" BackgroundColor="Silver">
-                    <Button x:Name="addItemButton" Text="Zakazi" Clicked="AddItem_Clicked" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand"/>
-                    <Button x:Name="editItemButton" Text="Podesavanja"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" />
+                    <ImageButton x:Name="addItemButton" Source="add.png" BackgroundColor="Transparent" Clicked="AddItem_Clicked"  HorizontalOptions="CenterAndExpand"/>
+                    <ImageButton x:Name="editItemButton" Source="settings.png"  BackgroundColor="Transparent"  HorizontalOptions="CenterAndExpand" />
                 </StackLayout>
             </Frame>
         </RelativeLayout>

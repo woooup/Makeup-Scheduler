@@ -7,7 +7,8 @@
 
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
             <Label Text="Name" FontSize="Medium" />
             <Entry Text="{Binding Item.Name}" FontSize="Small" />
             
@@ -43,6 +44,6 @@
                 </StackLayout>
             </Frame>
             </StackLayout>
- 
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
